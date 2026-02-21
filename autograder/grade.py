@@ -235,7 +235,7 @@ def main() -> None:
 
     # 5) Run tests
     tests_to_run = [LAB_TO_TEST[lab] for lab in sorted(labs_touched)]
-    cmd = ["pytest", "-q", "autograder/tests", "--timeout=5"]
+    cmd = ["pytest", "-q", *tests_to_run, "--timeout=5"]
     p = subprocess.run(cmd, cwd=REPO_ROOT, env=env, text=True)
     if p.returncode != 0:
       sys.exit(p.returncode)
