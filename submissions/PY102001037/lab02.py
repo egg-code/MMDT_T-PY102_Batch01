@@ -135,7 +135,7 @@ def hot_potato(names: list[str], k: int) -> str:
      Winner: "A"
 
     """
-    players = names.copy()
+    players = names.copy() # Avoid modifying the original list
     current = 0
     while len(players) > 1:
         current = (current + k - 1) % len(players)
