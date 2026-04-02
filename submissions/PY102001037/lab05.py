@@ -69,13 +69,13 @@ def sorted_array_to_bst(nums: List[int]) -> Optional[TreeNode]:
 
 def insert_bst(root: Optional[TreeNode], value: int):
     if root is None:
-        return TreeNode(value)
-    if value < root.value:
-        root.left = insert_bst(root.left, value)
-    elif value > root.value:
-        root.right = insert_bst(root.right, value)
+        root = TreeNode(value)
     if value == root.value:
-        raise ValueError("Duplicated values")
+        return root
+    elif value < root.value:
+        root.left = insert_bst(root.left, value)
+    else:
+        root.right = insert_bst(root.right, value)
     return root
 
 # ------------------------------------------------------------
